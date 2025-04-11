@@ -1,0 +1,55 @@
+<mvc:View controllerName="app.splitapp.controller.MasterView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+   		<Page title="List View">
+			<headerContent>
+				<Button icon="sap-icon://sort" press="onSort"/>
+				<Button icon="sap-icon://action" tooltip="Share" press="onDetailView"/>
+			</headerContent>
+			<subHeader>
+				<OverflowToolbar>
+					<SearchField search="onSearch" liveChange="onSearch"/>
+				</OverflowToolbar>
+			</subHeader>
+			<content>
+				<List items="{toolsModel>/toolData}" id="idListCtrl" mode="SingleSelectMaster" selectionChange="onItemSelect">
+					<items>
+												<!--<Text text="{parts:[{path:'XEmployModel>salary'}, {path:'XEmployModel>currency'}], formatter:'.someVariable.formatCurrency'}"></Text>-->
+
+						<ObjectListItem icon="{toolsModel>image}" intro="{toolsModel>toolsName}" number="{parts:[{path:'toolsModel>price'}, {path:'toolsModel>unit'}], formatter:'.someVariable.formatCurrency'}" numberState="{= ${toolsModel>availability}==='In Stock' ? 'Success' : 'Error'}">
+							<attributes>
+								<ObjectAttribute text="{toolsModel>weight}" title="weight"></ObjectAttribute>
+								<ObjectAttribute text="{toolsModel>warranty}" title="warranty"></ObjectAttribute>
+							</attributes>
+							<firstStatus>
+								<ObjectStatus text="{toolsModel>availability}" title="availability" state="{Success}"></ObjectStatus>
+							</firstStatus>
+						</ObjectListItem>
+						<!--<StandardListItem info="for cutting walls" infoState="Error" title="Angle Grind"></StandardListItem>-->
+						<!--<CustomListItem>-->
+						<!--	<content>-->
+						<!--		<Label text="{toolsModel>toolsName}"></Label>-->
+						<!--		<Input width="200px"></Input>-->
+						<!--	</content>-->
+						<!--</CustomListItem>-->
+						<!--<DisplayListItem label="angle grind" value="Rs.2000"></DisplayListItem>-->
+						<!--<FeedListItem icon="https://imagenes.montevideo.com.uy/imgnoticias/202009/_W933_80/738780.jpg"-->
+						<!--			info="congrats on your upcoming race"-->
+						<!--			sender="charles"-->
+						<!--			text="most awaited race!"-->
+						<!-->
+					</FeedListItem>-->
+				</items>
+			</List>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Accept" type="Accept"/>
+				<Button text="Reject" type="Reject"/>
+				<Button text="Edit"/>
+				<Button text="Delete"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
