@@ -22,6 +22,54 @@
 				<Label text="Warranty"></Label>
 				<Input id='idinput8' value="{toolsModel>warranty}"></Input>
 			</f:SimpleForm>
+			            <IconTabBar>
+                <items>
+                    <IconTabFilter icon="sap-icon://information">
+                        <VBox>
+                            <HBox >
+                                <Label text="Toolsname" class="bold-class" design="Bold"></Label>
+                                <Input id='idinput11' value="{path:'toolsModel>toolsName',formatter:'.someVariable.upperCase'}"></Input>
+                            </HBox>
+                            <HBox >
+                                <Label text="Uses"></Label>
+                                <Input id='idinput22' value="{toolsModel>uses}"></Input>
+                            </HBox>
+                            <HBox >
+                                <Label text="availability"></Label>
+                                <Input id='idinput33' value="{toolsModel>availability}"></Input>
+                            </HBox>
+                        </VBox>
+                    </IconTabFilter>
+ 
+                    <IconTabFilter icon="sap-icon://supplier">
+                        <Table items="{toolsModel>/supplierSet}">
+                            <columns>
+                                <Column >
+                                    <Text text="toolsName"></Text>
+                                </Column>
+                                <Column >
+                                    <Text text="supplierName"></Text>
+                                </Column>
+                                <Column >
+                                    <Text text="contact"></Text>
+                                </Column>
+                                <Column >
+                                    <Text text="location"></Text>
+                                </Column>
+                            </columns>
+                            <ColumnListItem >
+                                <cells>
+                                    <Text text="{toolsModel>toolsName}"></Text>
+                                    <Text text="{toolsModel>supplierName}"></Text>
+                                    <Text text="{toolsModel>contact}"></Text>
+                                    <Text text="{toolsModel>location}"></Text>
+                                </cells>
+                            </ColumnListItem>
+                        </Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+ 
 		</content>
 	</Page>
 </mvc:View>
